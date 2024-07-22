@@ -7,61 +7,69 @@ menuIcon.onclick = () => {
     navbar.classList.toggle('active')
 };
 
-const isMobile = window.innerWidth <= 768;
+document.addEventListener("DOMContentLoaded", function() {
+  let details = navigator.userAgent;
+  let regexp = /android|iphone|kindle|ipad/i;
+  let isMobileDevice = regexp.test(details);
 
-if (!isMobile) {
-  const coords = { x: 0, y: 0 };
-  const circles = document.querySelectorAll(".circle");
+  if (isMobileDevice) {
+      document.body.classList.add('mobile-device');
 
-  const colors = [
-    "#6c18f4", "#7b31f4", "#8943f5", "#9654f5", "#a164f5", "#ac73f6", "#b682f6", "#bf91f5", "#c8a0f5", "#d0aef5", "#d8bdf5", "#e0ccf4"
-  ];
-
-  circles.forEach(function (circle, index) {
-    circle.x = 0;
-    circle.y = 0;
-    circle.style.backgroundColor = colors[index % colors.length];
-  });
-
-  window.addEventListener("mousemove", function(e){
-    coords.x = e.clientX;
-    coords.y = e.clientY;
-  
-  });
-
-  function animateCircles() {
-  
-    let x = coords.x;
-    let y = coords.y;
-  
-    circles.forEach(function (circle, index) {
-      circle.style.left = x - 12 + "px";
-      circle.style.top = y - 12 + "px";
-    
-        circle.style.scale = (circles.length - index) / circles.length;
-    
-        circle.x = x;
-        circle.y = y;
-
-        const nextCircle = circles[index + 1] || circles[0];
-        x += (nextCircle.x - x) * 0.3;
-        y += (nextCircle.y - y) * 0.3;
+      // Change hover to click behavior for portfolio section on mobile
+      document.querySelectorAll('.portfolio-box').forEach(function(box) {
+          box.addEventListener('click', function() {
+              this.classList.toggle('clicked');
+              const link = this.querySelector('.portfolio-layer a');
+              if (link) {
+                  link.click();
+              }
+          });
       });
-      requestAnimationFrame(animateCircles);
+  } else {
+      document.body.classList.add('desktop-device');
+
+      const coords = { x: 0, y: 0 };
+      const circles = document.querySelectorAll(".circle");
+
+      const colors = [
+        "#6c18f4", "#7b31f4", "#8943f5", "#9654f5", "#a164f5", "#ac73f6", "#b682f6", "#bf91f5", "#c8a0f5", "#d0aef5", "#d8bdf5", "#e0ccf4"
+      ];
+
+      circles.forEach(function (circle, index) {
+        circle.x = 0;
+        circle.y = 0;
+        circle.style.backgroundColor = colors[index % colors.length];
+      });
+
+      window.addEventListener("mousemove", function(e){
+        coords.x = e.clientX;
+        coords.y = e.clientY;
+      
+      });
+
+      function animateCircles() {
+      
+        let x = coords.x;
+        let y = coords.y;
+      
+        circles.forEach(function (circle, index) {
+          circle.style.left = x - 12 + "px";
+          circle.style.top = y - 12 + "px";
+        
+            circle.style.scale = (circles.length - index) / circles.length;
+        
+            circle.x = x;
+            circle.y = y;
+
+            const nextCircle = circles[index + 1] || circles[0];
+            x += (nextCircle.x - x) * 0.3;
+            y += (nextCircle.y - y) * 0.3;
+          });
+          requestAnimationFrame(animateCircles);
+        }
+      animateCircles();
     }
-  animateCircles();
-}
-
-if (isMobile) {
-  document.querySelectorAll('.portfolio-box').forEach(function (box) {
-      box.addEventListener('click', function () {
-          const link = this.querySelector('.portfolio-layer a');
-          if (link) {
-              link.click();
-          }
-      });
-  });
-}
+});
 
 
 /*================================= scroll section active link ===================================*/
