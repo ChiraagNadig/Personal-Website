@@ -56,24 +56,20 @@
             <div class="home-content">
 
                 <script>
-                    /* Storing user's device details in a variable*/
+                    // Detect device type
                     let details = navigator.userAgent;
-                    
-                    /* Creating a regular expression
-                    containing some mobile devices keywords
-                    to search it in details string*/
                     let regexp = /android|iphone|kindle|ipad/i;
-                    
-                    /* Using test() method to search regexp in details
-                    it returns boolean value*/
                     let isMobileDevice = regexp.test(details);
-                    
+                  
+                    // Apply class based on device type
                     if (isMobileDevice) {
-                       document.write("<h3>Its a Mobile Device !</h3>");
+                      document.body.classList.add('mobile-device');
+                      document.write("Mobile Device !</h3>");
                     } else {
-                       document.write("<h3>Its a Desktop !</h3>");
+                      document.body.classList.add('desktop-device');
+                      document.write("<h3>Desktop !</h3>");
                     }
-                 </script>
+                  </script>
                 
                 <h3>Hi, I am</h3>
                 <h1>Chiraag Nadig</h1>
