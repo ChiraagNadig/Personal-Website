@@ -54,6 +54,11 @@
     margin: 2rem 0 3rem 0;
 }
 
+.mobile-device .about-content p {
+    text-align: center;
+    margin: 2rem 0 3rem 0;
+}
+
 .mobile-device .portfolio-box .portfolio-layer {
     transform: translateY(0);
     opacity: 1;
