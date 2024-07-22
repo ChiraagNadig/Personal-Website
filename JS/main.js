@@ -17,13 +17,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // Change hover to click behavior for portfolio section on mobile
       document.querySelectorAll('.portfolio-box').forEach(function(box) {
-          box.addEventListener('click', function() {
-              this.classList.toggle('clicked');
-              const link = this.querySelector('.portfolio-layer a');
-              if (link) {
-                  link.click();
-              }
-          });
+        box.addEventListener('click', function() {
+          const link = this.querySelector('.portfolio-layer a');
+          if (link) {
+              link.click();
+          }
+        });
       });
   } else {
       document.body.classList.add('desktop-device');
