@@ -11,6 +11,41 @@
     font-family: 'Nunito', sans-serif;
 }
 
+@media (max-width: 768px) {
+    .circle {
+        display: none;
+    }
+
+    body, .header, section, .services-container, .portfolio-container, .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .home-content, .about-content, .services-box, .portfolio-box, .footer-text, .footer-iconTop {
+        align-items: center;
+        text-align: center;
+    }
+
+    .home-img img, .about-img img, .portfolio-box img {
+        margin: 0 auto;
+    }
+
+    .portfolio-box:hover img {
+        transform: none;
+    }
+
+    .portfolio-box .portfolio-layer {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .portfolio-box .portfolio-overlay {
+        opacity: 1;
+    }
+}
+
 .circle {
     height: 24px;
     width: 24px;
