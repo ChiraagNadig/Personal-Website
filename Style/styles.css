@@ -11,40 +11,64 @@
     font-family: 'Nunito', sans-serif;
 }
 
-@media (max-width: 768px) {
-    .circle {
-        display: none;
-    }
-
-    body, .header, section, .services-container, .portfolio-container, .footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .home-content, .about-content, .services-box, .portfolio-box, .footer-text, .footer-iconTop {
-        align-items: center;
-        text-align: center;
-    }
-
-    .home-img img, .about-img img, .portfolio-box img {
-        margin: 0 auto;
-    }
-
-    .portfolio-box:hover img {
-        transform: none;
-    }
-
-    .portfolio-box .portfolio-layer {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    .portfolio-box .portfolio-overlay {
-        opacity: 1;
-    }
+/* Styles for mobile devices */
+.mobile-device .circle {
+    display: none;
 }
+
+.mobile-device body, 
+.mobile-device .header, 
+.mobile-device section, 
+.mobile-device .services-container, 
+.mobile-device .portfolio-container, 
+.mobile-device .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.mobile-device .home-content, 
+.mobile-device .about-content, 
+.mobile-device .services-box, 
+.mobile-device .portfolio-box, 
+.mobile-device .footer-text, 
+.mobile-device .footer-iconTop {
+    align-items: center;
+    text-align: center;
+}
+
+.mobile-device .home-img img, 
+.mobile-device .about-img img, 
+.mobile-device .portfolio-box img {
+    margin: 0 auto;
+}
+
+/* Change hover to click behavior for portfolio section on mobile */
+.mobile-device .portfolio-box:hover img {
+    transform: none;
+}
+
+.mobile-device .portfolio-box .portfolio-layer {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.mobile-device .portfolio-box .portfolio-overlay {
+    opacity: 1;
+}
+
+/* Hide the overlay and show on click */
+.mobile-device .portfolio-box .portfolio-overlay,
+.mobile-device .portfolio-box .portfolio-layer {
+    opacity: 0;
+}
+
+.mobile-device .portfolio-box.clicked .portfolio-overlay,
+.mobile-device .portfolio-box.clicked .portfolio-layer {
+    opacity: 1;
+}
+
 
 .circle {
     height: 24px;
