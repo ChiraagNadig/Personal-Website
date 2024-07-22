@@ -11,6 +11,19 @@
     font-family: 'Nunito', sans-serif;
 }
 
+.circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 24px;
+    background-color: black;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999; /* so that it stays on top of all other elements */
+  }
+
+
 :root {
     --bg-color: #191f36;
     --snd-bg-color: #262B40;
@@ -104,8 +117,16 @@ span {
 
 .home-img img{
     width: 25vw;
+    border-radius: 50%;
     animation: floatImage 4s ease-in-out infinite;
     margin: 2rem 0 3rem 16rem;
+    box-shadow: 0 0 25px var(--main-color);
+    transition: 0.4s ease-in-out;
+}
+
+.home-img img:hover {
+    box-shadow: 0 0 25px var(--main-color),
+                0 0 50px var(--main-color);
 }
 
 @keyframes floatImage {
@@ -385,18 +406,26 @@ span {
 */
 .footer {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
     flex-wrap: wrap;
-    padding: 2rem 9%;
+    padding: 0 9%; /* Adjust padding to exclude vertical padding */
     background: #bba3f4;
-    height: 6.5rem
+    height: 5.8rem;
 }
 
 .footer-text {
     font-size: 1.8rem;
-    text-align: center; /* Center the text */
+    text-align: center; /* Center the text horizontally */
     color: black;
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+    line-height: normal;
+    margin-right: 20px;
+}
+
+.footer-iconTop {
+    margin-left: 20px;
 }
 
 .footer-iconTop a {
@@ -404,7 +433,7 @@ span {
     justify-content: center;
     align-items: center;
     padding: .8rem 1rem;
-    background: var(--main-color);
+    background: #ffffff;
     border-radius: .8rem;
     transition: .5s ease;
 }
