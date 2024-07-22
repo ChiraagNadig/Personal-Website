@@ -61,12 +61,7 @@
 /* Hide the overlay and show on click */
 .mobile-device .portfolio-box .portfolio-overlay,
 .mobile-device .portfolio-box .portfolio-layer {
-    opacity: 0;
-}
-
-.mobile-device .portfolio-box.clicked .portfolio-overlay,
-.mobile-device .portfolio-box.clicked .portfolio-layer {
-    opacity: 0;
+    display: none;
 }
 
 
