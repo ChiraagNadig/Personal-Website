@@ -49,9 +49,18 @@
     transform: none;
 }
 
+.mobile-device .about-content h2 {
+    text-align: center;
+    margin: 2rem 0 3rem 0;
+}
+
 .mobile-device .portfolio-box .portfolio-layer {
     transform: translateY(0);
     opacity: 1;
+}
+
+.mobile-device .home-img img {
+    margin-top: 6rem; /* Adjust the value as needed to ensure sufficient spacing */
 }
 
 .mobile-device .portfolio-box .portfolio-overlay {
