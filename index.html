@@ -21,7 +21,7 @@
 <div class="circle"></div>
 <html lang="en">
 <head>
-    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="icon" href="img/favicon.png?v=2" type="image/png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,7 +43,8 @@
             <nav class="navbar">
                 <a href="#home" class="active">Home</a>
                 <a href="#about">About</a>
-                <a href="#services">Experience</a>
+                <a href="#experience">Experience</a>
+                <a href="#campus">Research & Ventures</a>
                 <a href="#portfolio">Portfolio</a>
                 <!-- <a href="#contact">Contact</a> -->
             </nav>
@@ -79,7 +80,7 @@
                     <a href="https://www.facebook.com/chiraag.nadig.3/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/chiraag.nadig/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 </div>
-                <a href="https://chiraagnadigresume.tiiny.site/" class="btn" target="_blank">View Resume</a>
+                <a href="resume/Chiraag-Nadig-Resume-2026.pdf" class="btn" target="_blank">View Resume</a>
             </div>
 
             <div class="home-img">
@@ -96,44 +97,54 @@
             <div class="about-content">
                 <h2 class="heading">About <span>Me</span></h2>
                 <!-- <h3>Tech Entrepreneur</h3> -->
-                <p>I am currently pursuing a Bachelor of Science in Computer Science at the University of Maryland-College Park with a focus on AI, ML, and Data Science and a minor in Technology Entrepreneurship.  I am passionate about leveraging technology and business to create a global impact. I have a strong foundation in software engineering and I love to utilize my interpersonal skills to connect and collaborate with others. Beyond tech, I enjoy singing and playing the piano.</p>
+                <p>I graduated from the University of Maryland with a B.S. in Computer Science and a minor in General Business. I'm drawn to how AI is reshaping software, from multi-agent systems to how we'll build products in the years ahead, and I care most about solving problems with real-world impact and scaling those solutions. Outside of code, you'll find me playing the piano, singing, or on the volleyball court.</p>
                 <!-- <a href="#" class="btn">Read More</a> -->
             </div>
         </section>
 
-        <!--  services section design  -->
-        <section class="services" id="services">
-            <h2 class="heading">My <span>Experiences</span></h2>
+        <!--  experience section design  -->
+        <section class="experience" id="experience">
+            <h2 class="heading">My <span>Experience</span></h2>
 
-            <div class="services-container">
-                <div class="services-box">
-                    <i class="fa-solid fa-robot"></i>
-                    <h3>AI Intern</h3>
-                    <p>Research and Development Intern at Quilt.AI, an AI-powered insights startup.</p>
-                    <a href="https://www.quilt.ai/" class="btn" target="_blank">Read More</a>
-                </div>
-
-                <div class="services-box">
-                    <i class="fa-solid fa-lightbulb"></i>
-                    <h3>Entrepreneurship</h3>
-                    <p>Co-Founder of Roam, a carpool app made by students, for students.</p>
-                    <a href="https://theroamtravel.com/" class="btn" target="_blank">Read More</a>
-                </div>
-
-                <div class="services-box">
-                    <i class="fa-solid fa-magnifying-glass-chart"></i>
-                    <h3>Quantum ML Research</h3>
-                    <p>Conducting Quantum ML research for UMD on stock price predictions.</p>
-                    <a href="https://github.com/ChiraagNadig/Quantum-ML-Research/blob/main/README.md" class="btn" target="_blank">Read More</a>
-                </div>
+            <div class="experience-container">
+                <div class="experience-sidebar" id="experience-sidebar"></div>
+                <div class="experience-content" id="experience-content"></div>
             </div>
         </section>
 
-        <!--  services section design  -->
+        <!--  research & ventures section design  -->
+        <section class="campus" id="campus">
+            <h2 class="heading">Research <span>& Ventures</span></h2>
+            <p class="campus-subheading">Research, engineering, and entrepreneurship from my time at UMD.</p>
+
+            <div class="campus-container" id="campus-container"></div>
+        </section>
+
+        <!--  portfolio section design  -->
         <section class="portfolio" id="portfolio">
             <h2 class="heading">Latest <span>Projects</span></h2>
 
             <div class="portfolio-container">
+                <div class="portfolio-box">
+                    <img src="img/crisis-match.svg" alt="Crisis Match">
+                    <div class="portfolio-overlay"></div>
+                    <div class="portfolio-layer">
+                        <h4>Crisis Match</h4>
+                        <p>Won Best Data Science Hack at Bitcamp. AI agents debate crisis severity using live disaster, ship, and plane data to match volunteers to relief orgs.</p>
+                        <a href="https://devpost.com/software/crisismatch" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a>
+                    </div>
+                </div>
+
+                <div class="portfolio-box">
+                    <img src="img/secure-journal.svg" alt="Secure Journal App">
+                    <div class="portfolio-overlay"></div>
+                    <div class="portfolio-layer">
+                        <h4>Secure Journal App</h4>
+                        <p>Zero-knowledge encrypted journal using AES-256-GCM, RSA-PSS, Argon2id, and a custom PKI/hybrid encryption protocol for end-to-end secure sharing.</p>
+                        <a href="https://github.com/ChiraagNadig/Cryptography-Project" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a>
+                    </div>
+                </div>
+
                 <div class="portfolio-box">
                     <img src="img/One.jpeg" alt="">
                     <div class="portfolio-overlay"></div>
@@ -173,27 +184,6 @@
                         <a href="https://github.com/ChiraagNadig/Yoga-Mitr/blob/main/README.md" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a>
                     </div>
                 </div>
-
-                <!--
-                <div class="portfolio-box">
-                    <img src="img/5.jpg" alt="">
-                    <div class="portfolio-layer">
-                        <h4>Web Design</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
-                    </div>
-                </div>
-
-                <div class="portfolio-box">
-                    <img src="img/6.jpg" alt="">
-                    <div class="portfolio-layer">
-                        <h4>Web Design</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
-                    </div>
-                </div>
-                -->
-
             </div>
         </section>
 
@@ -220,7 +210,7 @@
 
         <footer class="footer">
             <div class="footer-text">
-                <p>@ 2024 Chiraag Nadig</p>
+                <p>@ 2026 Chiraag Nadig</p>
             </div>
 
             <div class="footer-iconTop">
@@ -238,6 +228,9 @@
 
         <!--  MAIN JS  -->
         <script src="JS/main.js"></script>
+
+        <!--  EXPERIENCE JS  -->
+        <script src="JS/experience.js"></script>
     </body>
 </html>
 

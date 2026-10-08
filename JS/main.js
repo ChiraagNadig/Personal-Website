@@ -108,7 +108,7 @@ ScrollReveal({
 });
 
 ScrollReveal().reveal('.home-content, heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact form', { origin: 'bottom' });
+ScrollReveal().reveal('.home-img, .experience-container, .portfolio-box, .contact form', { origin: 'bottom' });
 ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
 ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 
@@ -116,7 +116,7 @@ ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 /*================================= typed js ===================================*/
 
 const typed = new Typed('.multiple-text', {
-    strings: ['Tech Entrepreneur', 'AI Engineer', 'CS Student'],
+    strings: ['Software Engineer', 'Builder', 'AI Enthusiast'],
     typeSpeed: 70,
     backSpeed: 70,
     backDelay: 1000,
