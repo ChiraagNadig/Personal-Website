@@ -1,7 +1,7 @@
 /*================================= experience data ===================================*/
 const experiences = [
     {
-        logo: "img/logos/google.png",
+        logo: "img/logos/google.png?v=2",
         role: "Incoming Software Engineer (L3)",
         company: "Google",
         location: "Mountain View, California",
@@ -39,7 +39,7 @@ const experiences = [
         link: { url: "https://tinyurl.com/PSLearnings", label: "Read the Report" }
     },
     {
-        logo: "img/logos/quilt-ai.png",
+        logo: "img/logos/quilt-ai.png?v=2",
         role: "Research and Development Intern",
         company: "Quilt.AI (AI Consumer Insights Platform)",
         location: "Boston, Massachusetts",
