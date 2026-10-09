@@ -566,7 +566,8 @@ span {
     transition: var(--ui-transition);
 }
 
-.portfolio-box:hover .portfolio-overlay {
+.portfolio-box:hover .portfolio-overlay,
+.portfolio-box:focus-within .portfolio-overlay {
     opacity: 1; /* Show overlay on hover */
 }
 
@@ -587,7 +588,8 @@ span {
     transition: var(--ui-transition);
 }
 
-.portfolio-box:hover .portfolio-layer {
+.portfolio-box:hover .portfolio-layer,
+.portfolio-box:focus-within .portfolio-layer {
     transform: translateY(0);
 }
 

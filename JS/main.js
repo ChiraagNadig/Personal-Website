@@ -140,10 +140,14 @@ if (!prefersReducedMotion && 'IntersectionObserver' in window) {
 
 /*================================= typed js ===================================*/
 
-const typed = new Typed('.multiple-text', {
-    strings: ['Software Engineer', 'Builder', 'AI Enthusiast'],
-    typeSpeed: 70,
-    backSpeed: 70,
-    backDelay: 1000,
-    loop: !prefersReducedMotion,
-});
+if (prefersReducedMotion) {
+    document.querySelector('.multiple-text').textContent = 'Software Engineer';
+} else {
+    new Typed('.multiple-text', {
+        strings: ['Software Engineer', 'Builder', 'AI Enthusiast'],
+        typeSpeed: 70,
+        backSpeed: 70,
+        backDelay: 1000,
+        loop: true,
+    });
+}

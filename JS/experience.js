@@ -94,6 +94,13 @@ function markGlyph(item, imgClass, iconClass) {
 const sidebar = document.getElementById('experience-sidebar');
 const content = document.getElementById('experience-content');
 
+const stackedTabsQuery = window.matchMedia('(max-width: 768px)');
+function syncTabOrientation() {
+    sidebar.setAttribute('aria-orientation', stackedTabsQuery.matches ? 'horizontal' : 'vertical');
+}
+syncTabOrientation();
+stackedTabsQuery.addEventListener('change', syncTabOrientation);
+
 function renderExperience(index) {
     const exp = experiences[index];
 
