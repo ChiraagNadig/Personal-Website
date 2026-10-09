@@ -27,7 +27,6 @@ const experiences = [
     },
     {
         logo: "img/logos/publicis-sapient.svg",
-        wide: true,
         role: "Software Engineer Intern",
         company: "Publicis Sapient (AI Consulting Firm)",
         location: "Chicago, Illinois",
@@ -87,7 +86,7 @@ const campusItems = [
 /*================================= shared icon/logo markup helper ===================================*/
 function markGlyph(item, imgClass, iconClass) {
     return item.logo
-        ? `<img src="${item.logo}" alt="" class="${imgClass}${item.wide ? ' wide' : ''}">`
+        ? `<img src="${item.logo}" alt="" class="${imgClass}">`
         : `<i class="${item.icon} ${iconClass}" aria-hidden="true"></i>`;
 }
 
