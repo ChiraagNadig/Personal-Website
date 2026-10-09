@@ -1,10 +1,18 @@
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+
 /*================================= toggle icon navbar ===================================*/
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 
+function setMenuOpen(open) {
+    menuIcon.classList.toggle('fa-xmark', open);
+    navbar.classList.toggle('active', open);
+    menuIcon.setAttribute('aria-expanded', String(open));
+}
+
 menuIcon.onclick = () => {
-    menuIcon.classList.toggle('fa-xmark');
-    navbar.classList.toggle('active')
+    setMenuOpen(!navbar.classList.contains('active'));
 };
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -26,7 +34,10 @@ document.addEventListener("DOMContentLoaded", function() {
       });
   } else {
       document.body.classList.add('desktop-device');
+  }
 
+  // Cursor trail: only for mouse users who haven't asked for reduced motion
+  if (hasFinePointer && !prefersReducedMotion && !isMobileDevice) {
       const coords = { x: 0, y: 0 };
       const circles = document.querySelectorAll(".circle");
 
@@ -43,20 +54,18 @@ document.addEventListener("DOMContentLoaded", function() {
       window.addEventListener("mousemove", function(e){
         coords.x = e.clientX;
         coords.y = e.clientY;
-      
       });
 
       function animateCircles() {
-      
         let x = coords.x;
         let y = coords.y;
-      
+
         circles.forEach(function (circle, index) {
           circle.style.left = x - 12 + "px";
           circle.style.top = y - 12 + "px";
-        
+
             circle.style.scale = (circles.length - index) / circles.length;
-        
+
             circle.x = x;
             circle.y = y;
 
@@ -67,7 +76,11 @@ document.addEventListener("DOMContentLoaded", function() {
           requestAnimationFrame(animateCircles);
         }
       animateCircles();
-    }
+  } else {
+      document.querySelectorAll(".circle").forEach(function (circle) {
+        circle.style.display = 'none';
+      });
+  }
 });
 
 
@@ -83,9 +96,8 @@ window.onscroll = () => {
         let id = sec.getAttribute('id');
 
         if(top >= offset && top < offset + height) {
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + id);
             });
         };
     });
@@ -95,22 +107,35 @@ window.onscroll = () => {
     header.classList.toggle('sticky', window.scrollY > 100);
 
     /*================================= remove toggle icon and navbar ===================================*/
-    menuIcon.classList.remove('fa-xmark');
-    navbar.classList.remove('active');
+    setMenuOpen(false);
 };
 
-/*================================= scroll reveal ===================================*/
-ScrollReveal({
-    //reset: true,
-    distance: '80px',
-    duration: 2000,
-    delay: 200,
-});
+/*================================= reveal on scroll ===================================*/
+// Content is only hidden once JS has marked it, so it never stays invisible if this fails.
+const revealGroups = [
+    { selector: '.home-content, .heading', origin: 'top' },
+    { selector: '.home-img, .experience-container, .portfolio-box, .campus-container', origin: 'bottom' },
+    { selector: '.home-content h1, .about-img', origin: 'left' },
+    { selector: '.home-content p, .about-content', origin: 'right' }
+];
 
-ScrollReveal().reveal('.home-content, heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img, .experience-container, .portfolio-box, .contact form', { origin: 'bottom' });
-ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
-ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
+if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.05 });
+
+    revealGroups.forEach(group => {
+        document.querySelectorAll(group.selector).forEach(el => {
+            el.classList.add('js-reveal', 'reveal-' + group.origin);
+            observer.observe(el);
+        });
+    });
+}
 
 
 /*================================= typed js ===================================*/
@@ -120,5 +145,5 @@ const typed = new Typed('.multiple-text', {
     typeSpeed: 70,
     backSpeed: 70,
     backDelay: 1000,
-    loop: true,
+    loop: !prefersReducedMotion,
 });

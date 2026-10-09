@@ -1,12 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
     border: none;
-    outline: none;
     scroll-behavior: smooth;
     font-family: 'Nunito', sans-serif;
 }
@@ -97,6 +94,7 @@
     --snd-bg-color: #262B40;
     --text-color: #fff;
     --main-color: #bba3f4;
+    --ui-transition: transform .5s ease, opacity .5s ease, box-shadow .5s ease, background-color .5s ease, border-color .5s ease, color .5s ease;
 }
 
 html {
@@ -153,6 +151,9 @@ section {
 }
 
 #menu-icon {
+    background: none;
+    cursor: pointer;
+    padding: 0;
     font-size: 3.6rem;
     color: var(--text-color);
     display: none;
@@ -185,11 +186,12 @@ span {
 
 .home-img img{
     width: 25vw;
+    height: auto;
     border-radius: 50%;
     animation: floatImage 4s ease-in-out infinite;
     margin: 2rem 0 3rem 16rem;
     box-shadow: 0 0 25px var(--main-color);
-    transition: 0.4s ease-in-out;
+    transition: box-shadow 0.4s ease-in-out;
 }
 
 .home-img img:hover {
@@ -225,7 +227,7 @@ span {
     font-size: 2rem;
     color: var(--main-color);
     margin: 3rem 1.5rem 3rem 0;
-    transition: .5s ease;
+    transition: var(--ui-transition);
 }
 
 .social-media a:hover {
@@ -244,7 +246,7 @@ span {
     color: var(--bg-color);
     letter-spacing: .1rem;
     font-weight: 600;
-    transition: .5s ease;
+    transition: var(--ui-transition);
 }
 
 .btn:hover {
@@ -261,6 +263,7 @@ span {
 
 .about-img img {
     width: 26vw;
+    height: auto;
 }
 
 .heading {
@@ -318,13 +321,28 @@ span {
     border: .2rem solid var(--bg-color);
     color: var(--text-color);
     cursor: pointer;
-    transition: .3s ease;
+    transition: border-color .3s ease, background-color .3s ease, box-shadow .3s ease;
 }
 
 .exp-tab .exp-icon-sm {
     font-size: 2.2rem;
     color: var(--main-color);
     flex: 0 0 auto;
+}
+
+.exp-logo-slot {
+    flex: 0 0 5.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.exp-tab .exp-logo-sm.wide {
+    width: 5.6rem;
+}
+
+.experience-content .exp-logo-lg.wide {
+    width: auto;
 }
 
 .exp-tab .exp-logo-sm {
@@ -449,7 +467,7 @@ span {
     border-radius: 2rem;
     text-align: center;
     border: .2rem solid var(--bg-color);
-    transition: .5s ease;
+    transition: var(--ui-transition);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -538,7 +556,7 @@ span {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: .5s ease;
+    transition: var(--ui-transition);
     opacity: 0.97;
 }
 
@@ -555,7 +573,7 @@ span {
     height: 100%;
     background: rgba(0, 0, 0, 0.9); /* Dark overlay */
     opacity: 0;
-    transition: .5s ease;
+    transition: var(--ui-transition);
 }
 
 .portfolio-box:hover .portfolio-overlay {
@@ -576,14 +594,14 @@ span {
     text-align: center;
     padding: 0 4rem;
     transform: translateY(100%);
-    transition: .5s ease;
+    transition: var(--ui-transition);
 }
 
 .portfolio-box:hover .portfolio-layer {
     transform: translateY(0);
 }
 
-.portfolio-layer h4{
+.portfolio-layer h3{
     font-size: 3rem;
 }
 
@@ -607,49 +625,6 @@ span {
     color: var(--snd-bg-color);
 }
 
-/*
-.contact h2 {
-    margin-bottom: 3rem;
-}
-
-.contact form {
-    max-width: 70rem;
-    margin: 1rem auto;
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.contact form .input-box {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.contact form .input-box input,
-.contact form textarea {
-    width: 100%;
-    padding: 1.5rem;
-    font-size: 1.6rem;
-    color: var(--text-color);
-    background: var(--snd-bg-color);
-    border-radius: .8rem;
-    margin: .7rem 0;
-}
-
-.contact form .input-box input {
-    width: 49%;
-}
-
-.contact form textarea {
-    resize: none;
-}
-
-.contact form .btn {
-    margin-top: 2rem;
-    cursor: pointer;
-}
-
-*/
 .footer {
     display: flex;
     justify-content: center; /* Center horizontally */
@@ -681,7 +656,7 @@ span {
     padding: .8rem 1rem;
     background: #ffffff;
     border-radius: .8rem;
-    transition: .5s ease;
+    transition: var(--ui-transition);
 }
 
 .footer-iconTop a:hover {
@@ -722,11 +697,6 @@ span {
     .portfolio {
         padding-bottom: 7rem;
     }
-    /*
-    .contact {
-        min-height: auto;
-    }
-    */
     .footer {
         padding: 2rem 3%;
     }
@@ -836,14 +806,69 @@ span {
     }
 }
 
-/*
-@media (max-width: 450px) {
-    html {
-        font-size: 50%;
+
+
+/*ACCESSIBILITY + MOTION*/
+
+.skip-link {
+    position: absolute;
+    top: -10rem;
+    left: 1rem;
+    z-index: 200;
+    padding: 1rem 2rem;
+    background: var(--main-color);
+    color: var(--bg-color);
+    font-size: 1.6rem;
+    font-weight: 700;
+    border-radius: .8rem;
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+:focus-visible {
+    outline: .3rem solid var(--main-color);
+    outline-offset: .3rem;
+}
+
+.btn:focus-visible,
+.exp-tab:focus-visible {
+    outline-color: #fff;
+}
+
+.experience-content:focus-visible {
+    outline-offset: -.3rem;
+}
+
+.js-reveal {
+    opacity: 0;
+    transition: opacity .9s ease, transform .9s ease;
+}
+
+.js-reveal.reveal-top { transform: translateY(-6rem); }
+.js-reveal.reveal-bottom { transform: translateY(6rem); }
+.js-reveal.reveal-left { transform: translateX(-6rem); }
+.js-reveal.reveal-right { transform: translateX(6rem); }
+
+.js-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html,
+    * {
+        scroll-behavior: auto;
     }
 
-    .contact form .input-box input {
-        width: 100%;
+    .home-img img {
+        animation: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: .01ms !important;
     }
 }
-*/

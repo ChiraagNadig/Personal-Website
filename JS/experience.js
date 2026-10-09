@@ -7,7 +7,7 @@ const experiences = [
         location: "Mountain View, California",
         dates: "Incoming",
         bullets: [
-            "Joining the Payments Journey / Payments Autofill team, working on the infrastructure and experience that powers autofill across Google's payments surfaces."
+            "Joining Google as a Software Engineer (L3) on the Payments Journey / Payments Autofill team in Mountain View."
         ],
         link: null
     },
@@ -26,7 +26,8 @@ const experiences = [
         link: { url: "https://www.hadrius.com/", label: "Visit Hadrius" }
     },
     {
-        logo: "img/logos/publicis-sapient.png",
+        logo: "img/logos/publicis-sapient.svg",
+        wide: true,
         role: "Software Engineer Intern",
         company: "Publicis Sapient (AI Consulting Firm)",
         location: "Chicago, Illinois",
@@ -61,7 +62,7 @@ const campusItems = [
         sub: "via UMD App Dev Club",
         dates: "Feb 2025 - May 2025",
         description: "Engineered an end-to-end AWS ML pipeline (GLiNER, BART) to extract and summarize content across 300+ federal policies, and architected a secure containerized cloud infrastructure that cut cold start latency 45%.",
-        link: { url: "https://www.boozallen.com/", label: "Learn More" }
+        link: { url: "https://www.boozallen.com/", label: "About Booz Allen" }
     },
     {
         icon: "fa-solid fa-magnifying-glass-chart",
@@ -79,15 +80,15 @@ const campusItems = [
         sub: null,
         dates: "Feb 2024 - Jan 2025",
         description: "Co-founded Roam Travel LLC and launched an iOS rideshare app connecting students within college networks, cutting average ride costs 50% vs. Uber/Lyft while leading an 8-person team.",
-        link: { url: "https://theroamtravel.com/", label: "Visit Roam" }
+        link: { url: "https://theroamtravel.com/", label: "Visit theroamtravel.com" }
     }
 ];
 
 /*================================= shared icon/logo markup helper ===================================*/
 function markGlyph(item, imgClass, iconClass) {
     return item.logo
-        ? `<img src="${item.logo}" alt="${item.company} logo" class="${imgClass}">`
-        : `<i class="${item.icon} ${iconClass}"></i>`;
+        ? `<img src="${item.logo}" alt="" class="${imgClass}${item.wide ? ' wide' : ''}">`
+        : `<i class="${item.icon} ${iconClass}" aria-hidden="true"></i>`;
 }
 
 /*================================= render sidebar + content ===================================*/
@@ -97,25 +98,33 @@ const content = document.getElementById('experience-content');
 function renderExperience(index) {
     const exp = experiences[index];
 
+    content.setAttribute('aria-labelledby', 'exp-tab-' + index);
     content.innerHTML = `
         ${markGlyph(exp, 'exp-logo-lg', 'exp-icon-lg')}
         <h3>${exp.role}</h3>
         <h4>${exp.company}</h4>
-        <p class="exp-meta"><i class="fa-solid fa-location-dot"></i> ${exp.location} &nbsp;&bull;&nbsp; <i class="fa-solid fa-calendar"></i> ${exp.dates}</p>
+        <p class="exp-meta"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> ${exp.location} &nbsp;&bull;&nbsp; <i class="fa-solid fa-calendar" aria-hidden="true"></i> ${exp.dates}</p>
         <ul>${exp.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
-        ${exp.link ? `<a href="${exp.link.url}" class="btn" target="_blank">${exp.link.label}</a>` : ''}
+        ${exp.link ? `<a href="${exp.link.url}" class="btn" target="_blank" rel="noopener">${exp.link.label}</a>` : ''}
     `;
 
     document.querySelectorAll('.exp-tab').forEach((tab, i) => {
-        tab.classList.toggle('active', i === index);
+        const selected = i === index;
+        tab.classList.toggle('active', selected);
+        tab.setAttribute('aria-selected', String(selected));
+        tab.tabIndex = selected ? 0 : -1;
     });
 }
 
 experiences.forEach((exp, index) => {
     const tab = document.createElement('button');
+    tab.type = 'button';
     tab.className = 'exp-tab';
+    tab.id = 'exp-tab-' + index;
+    tab.setAttribute('role', 'tab');
+    tab.setAttribute('aria-controls', 'experience-content');
     tab.innerHTML = `
-        ${markGlyph(exp, 'exp-logo-sm', 'exp-icon-sm')}
+        <span class="exp-logo-slot">${markGlyph(exp, 'exp-logo-sm', 'exp-icon-sm')}</span>
         <span class="exp-tab-text">
             <strong>${exp.role}</strong>
             <small>${exp.company}</small>
@@ -123,6 +132,14 @@ experiences.forEach((exp, index) => {
         </span>
     `;
     tab.addEventListener('click', () => renderExperience(index));
+    tab.addEventListener('keydown', (e) => {
+        const keys = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
+        if (!(e.key in keys)) return;
+        e.preventDefault();
+        const next = (index + keys[e.key] + experiences.length) % experiences.length;
+        renderExperience(next);
+        sidebar.children[next].focus();
+    });
     sidebar.appendChild(tab);
 });
 
@@ -140,7 +157,7 @@ campusItems.forEach(item => {
         <h4>${item.company}${item.sub ? `<small> &middot; ${item.sub}</small>` : ''}</h4>
         <p class="campus-dates">${item.dates}</p>
         <p>${item.description}</p>
-        <a href="${item.link.url}" class="btn" target="_blank">${item.link.label}</a>
+        <a href="${item.link.url}" class="btn" target="_blank" rel="noopener">${item.link.label}</a>
     `;
     campusContainer.appendChild(card);
 });
