@@ -97,6 +97,11 @@
     --ui-transition: transform .5s ease, opacity .5s ease, box-shadow .5s ease, background-color .5s ease, border-color .5s ease, color .5s ease;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 html {
     font-size: 62.5%;
     overflow-x: hidden;
