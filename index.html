@@ -1,56 +1,66 @@
 <!DOCTYPE html>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
 <html lang="en">
 <head>
-    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="icon" href="img/favicon.png?v=2" type="image/png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chiraag Nadig is a software engineer and University of Maryland computer science graduate building AI-driven software. See his experience, research, and projects.">
+    <meta name="theme-color" content="#191f36">
+    <meta name="color-scheme" content="dark">
     <title>Chiraag Nadig</title>
+
+    <!--  FONTS  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <!--  FONT-AWeSOME  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!--  MAIN CSS  -->
-    <link rel="stylesheet" href="Style/styles.css">
+    <link rel="stylesheet" href="Style/styles.css?v=9">
 </head>
     <body>
+        <a href="#main" class="skip-link">Skip to content</a>
+
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+        <div class="circle" aria-hidden="true"></div>
+
         <!--  header design  -->
         <header class="header">
             <a href="#" class="logo">Chiraag Nadig</a>
 
-            <i class="fa-solid fa-bars" id="menu-icon"></i>
+            <button type="button" class="fa-solid fa-bars" id="menu-icon" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav"></button>
 
-            <nav class="navbar">
+            <nav class="navbar" id="site-nav" aria-label="Primary">
                 <a href="#home" class="active">Home</a>
                 <a href="#about">About</a>
-                <a href="#services">Experience</a>
+                <a href="#experience">Experience</a>
+                <a href="#campus">Research &amp; Ventures</a>
                 <a href="#portfolio">Portfolio</a>
-                <!-- <a href="#contact">Contact</a> -->
             </nav>
         </header>
 
-        
-
+        <main id="main">
         <!--  home section design  -->
         <section class="home" id="home">
             <div class="home-content">
@@ -60,7 +70,7 @@
                     let details = navigator.userAgent;
                     let regexp = /android|iphone|kindle|ipad/i;
                     let isMobileDevice = regexp.test(details);
-                  
+
                     // Apply class based on device type
                     if (isMobileDevice) {
                       document.body.classList.add('mobile-device');
@@ -68,176 +78,140 @@
                       document.body.classList.add('desktop-device');
                     }
                   </script>
-                
+
                 <h3>Hi, I am</h3>
                 <h1>Chiraag Nadig</h1>
                 <h3>And I'm a <span class="multiple-text"></span></h3>
                 <p>Aspiring to bring a positive impact on society through technology</p>
                 <div class="social-media">
-                    <a href="https://www.linkedin.com/in/chiraag-nadig/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://github.com/ChiraagNadig" target="_blank"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.facebook.com/chiraag.nadig.3/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/chiraag.nadig/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/chiraag-nadig/" target="_blank" rel="noopener" aria-label="Chiraag on LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a href="https://github.com/ChiraagNadig" target="_blank" rel="noopener" aria-label="Chiraag on GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/chiraag.nadig.3/" target="_blank" rel="noopener" aria-label="Chiraag on Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/chiraag.nadig/?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw%3D%3D" target="_blank" rel="noopener" aria-label="Chiraag on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
                 </div>
-                <a href="https://chiraagnadigresume.tiiny.site/" class="btn" target="_blank">View Resume</a>
+                <a href="resume/Chiraag-Nadig-Resume-2026.pdf" class="btn" target="_blank" rel="noopener">View Resume</a>
             </div>
 
             <div class="home-img">
-                <img src="img/Chiraag circle.png" alt="">
+                <img src="img/hero.webp" width="900" height="898" fetchpriority="high" alt="Portrait of Chiraag Nadig in a navy suit beside the Chicago River">
             </div>
         </section>
 
         <!--  about section design  -->
         <section class="about" id="about">
             <div class="about-img">
-                <img src="img/chigprof.JPG" alt="">
+                <img src="img/about.webp" width="900" height="1348" loading="lazy" alt="Chiraag Nadig smiling outdoors in a purple shirt">
             </div>
 
             <div class="about-content">
                 <h2 class="heading">About <span>Me</span></h2>
-                <!-- <h3>Tech Entrepreneur</h3> -->
-                <p>I am currently pursuing a Bachelor of Science in Computer Science at the University of Maryland-College Park with a focus on AI, ML, and Data Science and a minor in Technology Entrepreneurship.  I am passionate about leveraging technology and business to create a global impact. I have a strong foundation in software engineering and I love to utilize my interpersonal skills to connect and collaborate with others. Beyond tech, I enjoy singing and playing the piano.</p>
-                <!-- <a href="#" class="btn">Read More</a> -->
+                <p>I graduated from the University of Maryland with a B.S. in Computer Science and a minor in General Business. I'm drawn to how AI is reshaping software, from multi-agent systems to how we'll build products in the years ahead, and I care most about solving problems with real-world impact and scaling those solutions. Outside of code, you'll find me playing the piano, singing, or on the volleyball court.</p>
             </div>
         </section>
 
-        <!--  services section design  -->
-        <section class="services" id="services">
-            <h2 class="heading">My <span>Experiences</span></h2>
+        <!--  experience section design  -->
+        <section class="experience" id="experience">
+            <h2 class="heading">My <span>Experience</span></h2>
 
-            <div class="services-container">
-                <div class="services-box">
-                    <i class="fa-solid fa-robot"></i>
-                    <h3>AI Intern</h3>
-                    <p>Research and Development Intern at Quilt.AI, an AI-powered insights startup.</p>
-                    <a href="https://www.quilt.ai/" class="btn" target="_blank">Read More</a>
-                </div>
-
-                <div class="services-box">
-                    <i class="fa-solid fa-lightbulb"></i>
-                    <h3>Entrepreneurship</h3>
-                    <p>Co-Founder of Roam, a carpool app made by students, for students.</p>
-                    <a href="https://theroamtravel.com/" class="btn" target="_blank">Read More</a>
-                </div>
-
-                <div class="services-box">
-                    <i class="fa-solid fa-magnifying-glass-chart"></i>
-                    <h3>Quantum ML Research</h3>
-                    <p>Conducting Quantum ML research for UMD on stock price predictions.</p>
-                    <a href="https://github.com/ChiraagNadig/Quantum-ML-Research/blob/main/README.md" class="btn" target="_blank">Read More</a>
-                </div>
+            <div class="experience-container">
+                <div class="experience-sidebar" id="experience-sidebar" role="tablist" aria-label="Work experience" aria-orientation="vertical"></div>
+                <div class="experience-content" id="experience-content" role="tabpanel" aria-live="polite" tabindex="0"></div>
             </div>
         </section>
 
-        <!--  services section design  -->
+        <!--  research & ventures section design  -->
+        <section class="campus" id="campus">
+            <h2 class="heading">Research <span>&amp; Ventures</span></h2>
+            <p class="campus-subheading">Research, engineering, and entrepreneurship from my time at UMD.</p>
+
+            <div class="campus-container" id="campus-container"></div>
+        </section>
+
+        <!--  portfolio section design  -->
         <section class="portfolio" id="portfolio">
             <h2 class="heading">Latest <span>Projects</span></h2>
 
             <div class="portfolio-container">
                 <div class="portfolio-box">
-                    <img src="img/One.jpeg" alt="">
+                    <img src="img/crisis-match.svg" width="400" height="400" loading="lazy" alt="Illustration of a globe with radar pings, a plane, and a ship">
                     <div class="portfolio-overlay"></div>
                     <div class="portfolio-layer">
-                        <h4>Tell Terry</h4>
-                        <p>The first AI-powered journal therapy app. Award winner in Bitcamp Hackathon. </p>
-                        <a href="https://github.com/ChiraagNadig/AIJournalTherapy-App-TellTerry/blob/main/README.md" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a>
+                        <h3>Crisis Match</h3>
+                        <p>Won Best Data Science Hack at Bitcamp. AI agents debate crisis severity using live disaster, ship, and plane data to match volunteers to relief orgs.</p>
+                        <a href="https://devpost.com/software/crisismatch" target="_blank" rel="noopener" aria-label="Crisis Match on Devpost"><i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i></a>
                     </div>
                 </div>
 
                 <div class="portfolio-box">
-                    <img src="img/Two.jpg" alt="">
+                    <img src="img/secure-journal.svg" width="400" height="400" loading="lazy" alt="Illustration of a locked journal surrounded by cipher text">
                     <div class="portfolio-overlay"></div>
                     <div class="portfolio-layer">
-                        <h4>ML Image Classifier</h4>
+                        <h3>Secure Journal App</h3>
+                        <p>Zero-knowledge encrypted journal using AES-256-GCM, RSA-PSS, Argon2id, and a custom PKI/hybrid encryption protocol for end-to-end secure sharing.</p>
+                        <a href="https://github.com/ChiraagNadig/Cryptography-Project" target="_blank" rel="noopener" aria-label="Secure Journal App on GitHub"><i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+                <div class="portfolio-box">
+                    <img src="img/One.jpeg" width="1018" height="1000" loading="lazy" alt="Tell Terry app artwork">
+                    <div class="portfolio-overlay"></div>
+                    <div class="portfolio-layer">
+                        <h3>Tell Terry</h3>
+                        <p>The first AI-powered journal therapy app. Award winner in Bitcamp Hackathon.</p>
+                        <a href="https://github.com/ChiraagNadig/AIJournalTherapy-App-TellTerry/blob/main/README.md" target="_blank" rel="noopener" aria-label="Tell Terry on GitHub"><i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+                <div class="portfolio-box">
+                    <img src="img/Two.jpg" width="1170" height="680" loading="lazy" alt="Collage of images used to train the ML image classifier">
+                    <div class="portfolio-overlay"></div>
+                    <div class="portfolio-layer">
+                        <h3>ML Image Classifier</h3>
                         <p>Classifies digit images and butterfly images with Scikit-learn.</p>
-                        <a href="https://github.com/ChiraagNadig/ComputerVision-Image-Classification/blob/main/README.md" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a>
+                        <a href="https://github.com/ChiraagNadig/ComputerVision-Image-Classification/blob/main/README.md" target="_blank" rel="noopener" aria-label="ML Image Classifier on GitHub"><i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i></a>
                     </div>
                 </div>
 
                 <div class="portfolio-box">
-                    <img src="img/Three.jpg" alt="">
+                    <img src="img/Three.jpg" width="800" height="400" loading="lazy" alt="ML Stock Predictor artwork">
                     <div class="portfolio-overlay"></div>
                     <div class="portfolio-layer">
-                        <h4>ML Stock Predictor</h4>
+                        <h3>ML Stock Predictor</h3>
                         <p>Web application with ML model to predict market price of a stock based on historical stock price data</p>
-                        <a href="https://github.com/ChiraagNadig/ML-Stock-Predictor/blob/main/README.md" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a>
+                        <a href="https://github.com/ChiraagNadig/ML-Stock-Predictor/blob/main/README.md" target="_blank" rel="noopener" aria-label="ML Stock Predictor on GitHub"><i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i></a>
                     </div>
                 </div>
 
                 <div class="portfolio-box">
-                    <img src="img/Four.png" alt="">
+                    <img src="img/Four.png" width="1024" height="1024" loading="lazy" alt="Yoga Mitr app artwork">
                     <div class="portfolio-overlay"></div>
                     <div class="portfolio-layer">
-                        <h4>Yoga Mitr</h4>
+                        <h3>Yoga Mitr</h3>
                         <p>A true Mitr ('friend' in Hindi) that systematically guides Yoga practitioners with a meter during Yoga routines.</p>
-                        <a href="https://github.com/ChiraagNadig/Yoga-Mitr/blob/main/README.md" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a>
+                        <a href="https://github.com/ChiraagNadig/Yoga-Mitr/blob/main/README.md" target="_blank" rel="noopener" aria-label="Yoga Mitr on GitHub"><i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i></a>
                     </div>
                 </div>
-
-                <!--
-                <div class="portfolio-box">
-                    <img src="img/5.jpg" alt="">
-                    <div class="portfolio-layer">
-                        <h4>Web Design</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
-                    </div>
-                </div>
-
-                <div class="portfolio-box">
-                    <img src="img/6.jpg" alt="">
-                    <div class="portfolio-layer">
-                        <h4>Web Design</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
-                    </div>
-                </div>
-                -->
-
             </div>
         </section>
-
-
-        <!--
-        <section class="contact" id="contact">
-            <h2 class="heading">Contact <span>Me!</span></h2>
-
-            <form action="#">
-                <div class="input-box">
-                    <input type="text" placeholder="Full Name">
-                    <input type="email" placeholder="Email Address">
-                </div>
-                <div class="input-box">
-                    <input type="number" placeholder="Mobile Number">
-                    <input type="text" placeholder="Email Subject">
-                </div>
-                <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-                <input type="submit" value="Send Message" class="btn">
-            </form>
-        </section>
-
-    -->
+        </main>
 
         <footer class="footer">
             <div class="footer-text">
-                <p>@ 2024 Chiraag Nadig</p>
+                <p>&copy; 2026 Chiraag Nadig</p>
             </div>
 
             <div class="footer-iconTop">
-                <a href="#home"><i class="fa-solid fa-angle-up"></i></a>
+                <a href="#home" aria-label="Back to top"><i class="fa-solid fa-angle-up" aria-hidden="true"></i></a>
             </div>
         </footer>
-        
-
 
         <!--  TYPED JS  -->
         <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
-        <!--  SCROLL REVEAL  -->
-        <script src="https://unpkg.com/scrollreveal"></script>
-
         <!--  MAIN JS  -->
-        <script src="JS/main.js"></script>
+        <script src="JS/main.js?v=10"></script>
+
+        <!--  EXPERIENCE JS  -->
+        <script src="JS/experience.js?v=9"></script>
     </body>
 </html>
-
