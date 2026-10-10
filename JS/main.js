@@ -45,10 +45,20 @@ document.addEventListener("DOMContentLoaded", function() {
         "#6c18f4", "#7b31f4", "#8943f5", "#9654f5", "#a164f5", "#ac73f6", "#b682f6", "#bf91f5", "#c8a0f5", "#d0aef5", "#d8bdf5", "#e0ccf4"
       ];
 
+      const hexToRgb = (hex) => [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16));
+
       circles.forEach(function (circle, index) {
         circle.x = 0;
         circle.y = 0;
-        circle.style.backgroundColor = colors[index % colors.length];
+
+        const position = (index / (circles.length - 1)) * (colors.length - 1);
+        const low = Math.floor(position);
+        const high = Math.min(low + 1, colors.length - 1);
+        const mix = position - low;
+        const from = hexToRgb(colors[low]);
+        const to = hexToRgb(colors[high]);
+        const rgb = from.map((channel, i) => Math.round(channel + (to[i] - channel) * mix));
+        circle.style.backgroundColor = `rgb(${rgb.join(', ')})`;
       });
 
       window.addEventListener("mousemove", function(e){
